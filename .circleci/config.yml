@@ -1,0 +1,15 @@
+version: 2.1
+
+jobs:
+  container-agent:
+    docker:
+      - image: cimg/base:current
+    parallelism: 20
+    steps:
+      - checkout
+      - run: echo "Hello!"
+
+workflows:
+  container-agent:
+    jobs:
+      - container-agent
