@@ -5,6 +5,7 @@ jobs:
     docker:
       - image: cimg/base:current
     parallelism: 20
+    resource_class: logan/gcp-ci-runner
     steps:
       - checkout
       - run: echo "Hello!"
