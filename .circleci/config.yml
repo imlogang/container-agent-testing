@@ -4,12 +4,12 @@ jobs:
   container-agent:
     docker:
       - image: cimg/base:current
-    parallelism: 40
+    parallelism: 20
     resource_class: logan/gcp-ci-runner
     steps:
       - checkout
       - run: echo "Hello!"
-      - run: sleep 200
+      - run: sleep 300
 
 workflows:
   container-agent:
