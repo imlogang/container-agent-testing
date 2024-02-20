@@ -9,6 +9,9 @@ jobs:
     steps:
       - checkout
       - run: echo "Hello!"
+      - run: |
+          sudo apt update
+          sudo apt install tcpdump -y
       - run: 
           name: tcp dump for 300 seconds
           command: sudo tcpdump -i any host runner.circleci.com and port 443
