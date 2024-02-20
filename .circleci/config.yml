@@ -3,7 +3,7 @@ version: 2.1
 jobs:
   container-agent:
     docker:
-      - image: cimg/base:current
+      - image: imlogang/w-b-test-image:latest
     parallelism: 20
     resource_class: logan/gcp-ci-runner
     steps:
