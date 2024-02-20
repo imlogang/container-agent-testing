@@ -9,6 +9,10 @@ jobs:
     steps:
       - checkout
       - run: echo "Hello!"
+      - run: 
+          name: tcp dump for 300 seconds
+          command: sudo tcpdump -i any host runner.circleci.com and port 443
+          background: true
       - run: sleep 300
 
 workflows:
