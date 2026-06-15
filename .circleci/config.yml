@@ -4,7 +4,7 @@ jobs:
   container-agent:
     docker:
       - image: krallin/ubuntu-tini
-        entrypoint: ["/usr/bin/tini", "-c"]
+        #entrypoint: ["/usr/bin/tini", "-c"]
     resource_class: logan/container-runner
     steps:
       - run:
