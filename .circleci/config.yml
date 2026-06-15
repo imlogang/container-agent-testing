@@ -3,8 +3,8 @@ version: 2.1
 jobs:
   container-agent:
     docker:
-      - image: ubuntu:22.04
-        entrypoint: ["/bin/sh", "-c"]
+      - image: krallin/ubuntu-tini
+        entrypoint: entrypoint: ["/usr/local/bin/tini", "--"]
     resource_class: logan/container-runner
     steps:
       - run:
