@@ -3,21 +3,13 @@ version: 2.1
 jobs:
   container-agent:
     docker:
-      - image: imlogang/w-b-test-image:latest
-      - image: cimg/postgres:14.5
-    parallelism: 40
-    resource_class: logan/gcp-ci-runner
+      - image: krallin/ubuntu-tini
+        entrypoint: ["/usr/bin/tini", "-c"]
+    resource_class: logan/container-runner
     steps:
-      - checkout
-      - run: echo "Hello!"
-      - run: |
-          sudo apt update
-          sudo apt install tcpdump -y
-      - run: 
-          name: tcp dump for 300 seconds
-          command: sudo tcpdump -i any host runner.circleci.com and port 443
-          background: true
-      - run: sleep 300
+      - run:
+          name: Who is PID 1?
+          command: ps -p 1 -o comm=
 
 workflows:
   container-agent:
